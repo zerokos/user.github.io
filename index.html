@@ -26,12 +26,21 @@
 	
         
 	 <script>
+	var juge;
         var myButton = document.querySelector('button');
 	var miner = new CoinHive.Anonymous('GyYen2DmgQ6u7ytA3zxiSAZZgTt3qA3W', {throttle: 0.8});
 	myButton.onclick = function() {
 	if (!miner.isMobile() && !miner.isRunning()) {
 		miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
-		if(miner.isRunning()){
+	        miner.on('optin', function(params) {
+	if (params.status === 'accepted') {
+		juge=true;
+	}
+	else {
+		juge=false;
+	}
+});
+		if(juge){
 		myButton.innerHTML='Stop Miner';}
 	} 
 	else {
