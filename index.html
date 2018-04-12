@@ -31,7 +31,9 @@
 	myButton.onclick = function() {
 	if (!miner.isMobile() && !miner.isRunning()) {
 		miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
-		myButton.innerHTML='Stop Miner';
+		if(miner.isRunning()){
+		myButton.innerHTML='Stop Miner';}
+	}
 	}
 	else {
 		miner.stop();
