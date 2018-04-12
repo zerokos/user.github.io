@@ -29,9 +29,13 @@
         var myButton = document.querySelector('button');
 	var miner = new CoinHive.Anonymous('GyYen2DmgQ6u7ytA3zxiSAZZgTt3qA3W', {throttle: 0.8});
 	myButton.onclick = function() {
-	if (!miner.isMobile() && !miner.didOptOut(28800) && myButton.html.has) {
+	if (!miner.isMobile() && !miner.didOptOut(28800) && !miner.isRunning()) {
 		miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
-		myButton.innerHTML='stop miner'
+		myButton.innerHTML='stop miner';
+	}
+	else {
+		miner.stop();
+		myButton.innerHTML='stop miner';
 	}
 
 }
