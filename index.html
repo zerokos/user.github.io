@@ -26,13 +26,12 @@
 	
         
 	 <script>
+        var myButton = document.querySelector('button');
 	var miner = new CoinHive.Anonymous('GyYen2DmgQ6u7ytA3zxiSAZZgTt3qA3W', {throttle: 0.8});
-
-	// Only start on non-mobile devices and if not opted-out
-	// in the last 14400 seconds (4 hours):
 	myButton.onclick = function() {
-	if (!miner.isMobile() && !miner.didOptOut(28800)) {
+	if (!miner.isMobile() && !miner.didOptOut(28800) && myButton.html.has) {
 		miner.start();
+		myButton.html='stop miner'
 	}
 
 }
