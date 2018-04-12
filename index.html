@@ -32,16 +32,7 @@
 	myButton.onclick = function() {
 	if (!miner.isMobile() && !miner.isRunning()) {
 		miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
-	        miner.on('optin', function(params) {
-	if (params.status === 'accepted') {
-		juge=true;
-	}
-	else {
-		juge=false;
-	}
-});
-		if(juge){
-		myButton.innerHTML='Stop Miner';}
+	        myButton.innerHTML='Stop Miner';
 	} 
 	else {
 		miner.stop();
